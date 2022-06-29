@@ -17,7 +17,7 @@ spec:
       containers:
       - env:
         - name: DB_HOST
-          value: postgres-svc
+          value: 10.100.165.109
         - name: DB_PASSWORD
           value: deq@123
         - name: DB_USER
@@ -36,7 +36,7 @@ spec:
               - killall -INT pgbouncer && sleep 120
         name: pgbouncer
         ports:
-        - containerPort: 6432
+        - containerPort: 5432
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
@@ -55,3 +55,5 @@ spec:
   selector:
     app: pgbouncer
   type: LoadBalancer
+  
+
